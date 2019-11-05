@@ -5,12 +5,9 @@
  */
 package id.pascal.bookscrawler;
 
-import id.pascal.bookscrawler.models.Book;
-import id.pascal.bookscrawler.models.BookEater;
 import id.pascal.bookscrawler.models.Crawler;
 import id.pascal.bookscrawler.models.crawlers.GramediaCrawler;
 import id.pascal.bookscrawler.models.eaters.CSVBookEater;
-import id.pascal.bookscrawler.models.eaters.ConsoleBookEater;
 import java.io.IOException;
 
 /**
@@ -32,6 +29,5 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        eater.close();
     }
 }

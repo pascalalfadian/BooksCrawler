@@ -5,6 +5,8 @@
  */
 package id.pascal.bookscrawler.models;
 
+import java.net.URL;
+
 /**
  *
  * @author pascal
@@ -20,7 +22,9 @@ public class Book implements Cloneable {
     private String language;
     private Integer numOfPages;
     private float price;
-    private String additionalDescription;    
+    private String additionalDescription;
+    private URL imageURL;
+    private String remarks;
 
     public Book(String title, String author) {
         this.title = title;
@@ -106,14 +110,29 @@ public class Book implements Cloneable {
     public void setAdditionalDescription(String additionalDescription) {
         this.additionalDescription = additionalDescription;
     }
-    
+
+    public URL getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(URL imageURL) {
+        this.imageURL = imageURL;
+    }
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
     @Override
     public Object clone() throws CloneNotSupportedException  { 
         return super.clone(); 
     } 
-    
+
     @Override
     public String toString() {
-        return "Book{" + "title=" + title + ", publisher=" + publisher + ", author=" + author + ", year=" + year + ", lcClassificationCode=" + lcClassificationCode + ", isbn=" + isbn + ", language=" + language + ", numOfPages=" + numOfPages + ", price=" + price + ", additionalDescription=" + additionalDescription + '}';
-    }    
+        return "Book{" + "title=" + title + ", publisher=" + publisher + ", author=" + author + ", year=" + year + ", lcClassificationCode=" + lcClassificationCode + ", isbn=" + isbn + ", language=" + language + ", numOfPages=" + numOfPages + ", price=" + price + ", additionalDescription=" + (additionalDescription == null ? null : additionalDescription.hashCode()) + ", imageURL=" + imageURL + ", remarks=" + remarks + '}';
+    }
 }
