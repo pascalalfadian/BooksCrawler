@@ -7,6 +7,35 @@ package id.pascal.bookscrawler.models;
 
 import java.io.IOException;
 
-public interface Crawler {
-    public void crawl(BookEater eater) throws IOException;
+public abstract class Crawler {
+
+    protected int pageFrom = 1;
+    protected int pageTo = 1;
+    protected int itemsPerPage = 20;
+
+    public int getPageFrom() {
+        return pageFrom;
+    }
+
+    public void setPageFrom(int pageFrom) {
+        this.pageFrom = pageFrom;
+    }
+
+    public int getPageTo() {
+        return pageTo;
+    }
+
+    public void setPageTo(int pageTo) {
+        this.pageTo = pageTo;
+    }
+
+    public int getItemsPerPage() {
+        return itemsPerPage;
+    }
+
+    public void setItemsPerPage(int itemsPerPage) {
+        this.itemsPerPage = itemsPerPage;
+    }
+    
+    public abstract void crawl(BookEater eater) throws IOException;
 }

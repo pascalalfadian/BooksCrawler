@@ -20,30 +20,17 @@ import org.jsoup.Jsoup;
  *
  * @author pascal
  */
-public class GramediaCrawler implements Crawler {
-
-    private final int pageFrom;
-    private final int pageTo;
-    private final int perPage;
-
-    public GramediaCrawler(int pageFrom, int pageTo, int perPage) {
-        this.pageFrom = pageFrom;
-        this.pageTo = pageTo;
-        this.perPage = perPage;
-    }
-
-    public GramediaCrawler() {
-        this(1, 1, 20);
-    }
+public class GramediaCrawler extends Crawler {
 
     @Override
     public void crawl(BookEater eater) throws IOException {
         for (int page = pageFrom; page <= pageTo; page++) {
+            System.err.printf("Crawling page %d out of (%d..%d)\n", page, pageFrom, pageTo);
             Connection connection = Jsoup.connect(
                     String.format(
                             "https://www.gramedia.com/api/products/?page=%d&per_page=%d&category=buku&based_on=new-arrival",
                             pageFrom,
-                            perPage
+                            itemsPerPage
                     )
             );
             connection.ignoreContentType(true);
