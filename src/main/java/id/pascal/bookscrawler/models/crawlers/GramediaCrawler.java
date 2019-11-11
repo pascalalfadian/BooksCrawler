@@ -25,11 +25,11 @@ public class GramediaCrawler extends Crawler {
     @Override
     public void crawl(BookEater eater) throws IOException {
         for (int page = pageFrom; page <= pageTo; page++) {
-            System.err.printf("Crawling page %d out of (%d..%d)\n", page, pageFrom, pageTo);
+            System.err.printf("### Crawling page %d out of (%d..%d)\n", page, pageFrom, pageTo);
             Connection connection = Jsoup.connect(
                     String.format(
                             "https://www.gramedia.com/api/products/?page=%d&per_page=%d&category=buku&based_on=new-arrival",
-                            pageFrom,
+                            page,
                             itemsPerPage
                     )
             );

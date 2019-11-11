@@ -9,9 +9,9 @@ import java.io.IOException;
 
 public abstract class Crawler {
 
-    protected int pageFrom = 1;
-    protected int pageTo = 1;
-    protected int itemsPerPage = 20;
+    protected int pageFrom;
+    protected int pageTo;
+    protected int itemsPerPage;
 
     public int getPageFrom() {
         return pageFrom;
